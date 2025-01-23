@@ -1,0 +1,1 @@
+The `grpc` npm pacakge previously lived in this package. It has been removed. It now lives in the [`grpc@1.24.x` branch](https://github.com/grpc/grpc-node/tree/grpc%401.24.x/packages/grpc-native-core) where bugfixes are still being applied.

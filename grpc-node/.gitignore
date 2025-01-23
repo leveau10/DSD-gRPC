@@ -1,0 +1,25 @@
+.DS_Store
+.vscode
+build/
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn.lock
+artifacts
+
+# Emacs temp files
+*~
+\#*\#
+.\#*
+
+.nyc_output/
+reports/
+
+package-lock.json
+pnpm-lock.yaml
+
+# Test generated files
+coverage
+
+# Node's bash completion file
+.node_bash_completion

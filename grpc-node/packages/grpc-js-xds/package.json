@@ -1,0 +1,76 @@
+{
+  "name": "@grpc/grpc-js-xds",
+  "version": "1.9.0",
+  "description": "Plugin for @grpc/grpc-js. Adds the xds:// URL scheme and associated features.",
+  "main": "build/src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "check": "gts check",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run check",
+    "generate-types": "proto-loader-gen-types --keepCase --longs String --enums String --defaults --oneofs --includeComments --includeDirs deps/envoy-api/ deps/xds/ deps/googleapis/ deps/protoc-gen-validate/ -O src/generated/ --grpcLib @grpc/grpc-js envoy/service/discovery/v3/ads.proto envoy/service/load_stats/v3/lrs.proto envoy/config/listener/v3/listener.proto envoy/config/route/v3/route.proto envoy/config/cluster/v3/cluster.proto envoy/config/endpoint/v3/endpoint.proto envoy/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto udpa/type/v1/typed_struct.proto xds/type/v3/typed_struct.proto envoy/extensions/filters/http/fault/v3/fault.proto envoy/service/status/v3/csds.proto",
+    "generate-interop-types": "proto-loader-gen-types --keep-case --longs String --enums String --defaults --oneofs --json --includeComments --includeDirs proto/ -O interop/generated --grpcLib @grpc/grpc-js grpc/testing/test.proto",
+    "generate-test-types": "proto-loader-gen-types --keep-case --longs String --enums String --defaults --oneofs --json --includeComments --includeDirs proto/ -O test/generated --grpcLib @grpc/grpc-js grpc/testing/echo.proto"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grpc/grpc-node.git"
+  },
+  "keywords": [
+    "grpc"
+  ],
+  "author": {
+    "name": "Google Inc."
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/grpc/grpc-node/issues"
+  },
+  "homepage": "https://github.com/grpc/grpc-node#readme",
+  "devDependencies": {
+    "@grpc/grpc-js": "file:../grpc-js",
+    "@types/gulp": "^4.0.6",
+    "@types/gulp-mocha": "0.0.32",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^13.11.1",
+    "@types/yargs": "^15.0.5",
+    "gts": "^2.0.2",
+    "typescript": "^3.8.3",
+    "yargs": "^15.4.1"
+  },
+  "dependencies": {
+    "@grpc/proto-loader": "^0.6.0",
+    "google-auth-library": "^7.0.2",
+    "re2-wasm": "^1.0.1",
+    "vscode-uri": "^3.0.7"
+  },
+  "peerDependencies": {
+    "@grpc/grpc-js": "~1.9.0"
+  },
+  "engines": {
+    "node": ">=10.10.0"
+  },
+  "files": [
+    "src/**/*.ts",
+    "build/src/**/*.{js,d.ts,js.map}",
+    "deps/envoy-api/envoy/admin/v3/**/*.proto",
+    "deps/envoy-api/envoy/config/**/*.proto",
+    "deps/envoy-api/envoy/service/**/*.proto",
+    "deps/envoy-api/envoy/type/**/*.proto",
+    "deps/envoy-api/envoy/annotations/**/*.proto",
+    "deps/envoy-api/envoy/extensions/**/*.proto",
+    "deps/googleapis/google/api/**/*.proto",
+    "deps/googleapis/google/protobuf/**/*.proto",
+    "deps/googleapis/google/rpc/**/*.proto",
+    "deps/xds/udpa/annotations/**/*.proto",
+    "deps/xds/udpa/type/**/*.proto",
+    "deps/xds/xds/annotations/**/*.proto",
+    "deps/xds/xds/core/**/*.proto",
+    "deps/xds/xds/type/**/*.proto",
+    "deps/protoc-gen-validate/validate/**/*.proto"
+  ]
+}
